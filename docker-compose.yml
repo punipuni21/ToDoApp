@@ -1,0 +1,12 @@
+version: '3'
+services:
+  node: #サービス名
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    tty: true #コンテナの起動永続化
+    volumes:
+      - .:/react/src/work #マウントディレクトリ指定
+    command: sh -c "cd todoapp && yarn start"
+    ports:
+      - "3000:3000"
